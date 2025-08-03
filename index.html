@@ -96,14 +96,12 @@
             console.error('Error loading OBJ:', error);
         });
 
-
-
-        // ✅ render loop
         function animate(t) {
-
-            renderer.render(scene, camera);
             requestAnimationFrame(animate);
+            controls.update(); // ✅ จำเป็นเพื่อให้กล้องขยับตามเมาส์
+            renderer.render(scene, camera);
         }
+
         animate(0);
 
         window.addEventListener('keydown', (event) => {
